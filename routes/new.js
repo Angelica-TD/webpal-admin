@@ -2,33 +2,40 @@ const express = require('express');
 const fs = require('fs');
 const router = express.Router();
 
+router.get('/', (req, res) => {
+  res.render('add-product');
+});
+
 router.post('/', (req, res) => {
+  
   const { id } = req.body;
+
+  const directory = `../products/${id}`;
+  const filePath = `../products/${id}/${id}.html`;
 
   // Check if the ID is provided
   if (!id) {
-    return res.status(400).send('ID is required');
+    return res.status(404).send();
   }
 
-  if (fs.existsSync(`products/${id}`)) {
-    return res.status(400).send('Folder already exists');
+  if (fs.existsSync(directory)) {
+    return res.status(400).send();
   }
 
   // Create the new folder
-  fs.mkdir(`../products/${id}`, (err) => {
+  fs.mkdir(directory, (err) => {
     const fileContent = '';
     if (err) {
-      console.error('Error creating folder:', err);
-      return res.status(500).send('Error creating folder');
+      console.error('Error creating product:', err);
+      return res.status(500).send('Error creating product');
     }
 
-    fs.writeFile(`../products/${id}/${id}.html`, fileContent, (err) => {
+    fs.writeFile(filePath, fileContent, (err) => {
       if (err) {
-        console.error('Error creating file:', err);
-        return res.status(500).send('Error creating file');
+        console.error('Error creating product:', err);
+        return res.status(500).send('Error creating product');
       }
-      res.json({ message: 'File created successfully' });
-      res.redirect('/');
+      res.json({ message: 'Product created successfully' });
     });
   });
 });

@@ -2,3 +2,4 @@
 When user presses submit, process the request, if success, display a dialog. Use ajax
 
 25/5
+Add another user input called product name, when user goes to a single product, display this product name as h1
