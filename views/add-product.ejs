@@ -18,7 +18,8 @@
           url: '/new',
           data: formData,
           success: function(response) {
-            alert(response.message);
+            alert('Product successfully added');
+            window.location.href = `/view-product/${response}`;
           },
           error: function(xhr, status, error) {
             if(xhr.status===400){
@@ -40,8 +41,17 @@
     </div>
     <h1>Add a new product</h1>
     <form>
-      <label for="id">ID:</label>
-      <input type="text" id="id" name="id">
+      <div>
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id">
+      </div>
+      
+      <div>
+        <label for="productName">Product name: </label>
+        <input type="text" id="productName" name="productName">
+      </div>
+      
+
       <button type="submit">Submit</button>
     </form>
 </body>

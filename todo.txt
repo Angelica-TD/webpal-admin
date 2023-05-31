@@ -2,4 +2,11 @@
 When user presses submit, process the request, if success, display a dialog. Use ajax
 
 25/5
-Add another user input called product name, when user goes to a single product, display this product name as h1
+- [DEFER] Add another user input called product name, when user goes to a single product, display this product name as h1
+- [DONE] create a new route /view-product
+- [DONE] add it to app.js
+
+31/5
+
+- [DONE] when viewing all products add a button to delete a product
+- add functionality to delete a product in view all products page and in view single product

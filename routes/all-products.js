@@ -20,12 +20,6 @@ router.get('/', (req, res) => {
 
 });
 
-router.get('/:productId', (req, res) => {
-  
-  const productId = req.params.productId;
 
-  res.render('single-product', {productId});
-  
-});
 
 module.exports = router;

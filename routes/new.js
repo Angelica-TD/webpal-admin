@@ -8,13 +8,14 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   
-  const { id } = req.body;
+  const { id, productName } = req.body;
 
   const directory = `../products/${id}`;
   const filePath = `../products/${id}/${id}.html`;
 
-  // Check if the ID is provided
-  if (!id) {
+  // Check if the ID and product name is provided
+  if (!id || !productName) {
+    console.log('no id no prod name')
     return res.status(404).send();
   }
 
@@ -35,7 +36,7 @@ router.post('/', (req, res) => {
         console.error('Error creating product:', err);
         return res.status(500).send('Error creating product');
       }
-      res.json({ message: 'Product created successfully' });
+      res.send(id);
     });
   });
 });
