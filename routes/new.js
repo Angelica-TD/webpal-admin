@@ -3,7 +3,7 @@ const fs = require('fs');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('add-product');
+  res.render('add-product', { title: 'Add new product' });
 });
 
 router.post('/', (req, res) => {

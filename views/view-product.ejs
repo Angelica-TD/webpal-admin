@@ -1,57 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>single product</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</head>
-<body>
-    <div>
-        <a href="/">Home</a>
-    </div>
-    <div>
-        <a href="/all-products">Back to all products</a>
-    </div>
-    <h1>
-        Product <%= productId %>
-    </h1>
-    <button class="delete-button" id="<%= productId %>">
-        <img src="/icons/bin.png" alt="" style="width: 10px; height: 10px;">
-    </button>
+<h1>
+    Product <%= productId %>
+</h1>
+<button class="delete-button" id="<%= productId %>">
+    <img src="/icons/bin.png" alt="" style="width: 10px; height: 10px;">
+</button>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const deleteButton = document.querySelector('.delete-button');
 
-            deleteButton.addEventListener('click', function(event) {
-                event.preventDefault();
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const deleteButton = document.querySelector('.delete-button');
 
-                    if (confirm('Are you sure you want to delete this item?')) {
-                        $.ajax({
-                            type: 'POST',
-                            url: '/delete-product',
-                            data: { id: `${deleteButton.id}`},
-                            success: function(response) {
-                                alert(`${response} has been deleted`);
-                                window.location.href = `/all-products`;
-                            },
-                            error: function(xhr, status, error) {
-                                if(xhr.status===400){
-                                    alert("err 400");
-                                }
-                                else if(xhr.status===404){
-                                    alert("err 404");
-                                }
-                                
-                            }
-                        });
-                    }
-                });
-        });
-
-    </script>
-</body>
-</html>
+        deleteButton.addEventListener('click', function(event) {
+                deleteButtonHandler(event, deleteButton.id)
+            });
+    });
+</script>

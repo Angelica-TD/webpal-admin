@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
                 return res.status(500).send('Error retrieving directory');
             }
 
-            res.render('all-products', { files });
+            res.render('all-products', { title: 'All Products', files });
 
         });
   }

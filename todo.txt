@@ -9,4 +9,5 @@ When user presses submit, process the request, if success, display a dialog. Use
 31/5
 
 - [DONE] when viewing all products add a button to delete a product
-- add functionality to delete a product in view all products page and in view single product
+- [DONE] add functionality to delete a product in view all products page and in view single product
+- refactor code

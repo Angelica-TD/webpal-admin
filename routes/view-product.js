@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/:id', (req, res) => {
   const { id } = req.params;
-  res.render('view-product', { productId: id });
+  res.render('view-product', { title: `${id}`, productId: id });
 });
 
 

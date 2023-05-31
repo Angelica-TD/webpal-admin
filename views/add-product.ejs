@@ -1,58 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add a new product</title>
+<h1>Add a new product</h1>
+<form>
+  <div>
+    <label for="id">ID:</label>
+    <input type="text" id="id" name="id">
+  </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <div>
+    <label for="productName">Product name: </label>
+    <input type="text" id="productName" name="productName">
+  </div>
 
-  <script>
-    $(document).ready(function() {
-      $('form').submit(function(e) {
+
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  $(document).ready(function () {
+    $('form').submit(function (e) {
         e.preventDefault();
-        var formData = $(this).serialize();
-        $.ajax({
-          type: 'POST',
-          url: '/new',
-          data: formData,
-          success: function(response) {
-            alert('Product successfully added');
-            window.location.href = `/view-product/${response}`;
-          },
-          error: function(xhr, status, error) {
-            if(xhr.status===400){
-                alert("Product already exists");
-            }
-            else if(xhr.status===404){
-                alert("ID is required");
-            }
-            
-          }
-        });
-      });
+        addProductHandler($(this));
     });
-  </script>
-</head>
-<body>
-    <div>
-        <a href="/">Home</a>
-    </div>
-    <h1>Add a new product</h1>
-    <form>
-      <div>
-        <label for="id">ID:</label>
-        <input type="text" id="id" name="id">
-      </div>
-      
-      <div>
-        <label for="productName">Product name: </label>
-        <input type="text" id="productName" name="productName">
-      </div>
-      
-
-      <button type="submit">Submit</button>
-    </form>
-</body>
-</html>
+  });
+</script>
