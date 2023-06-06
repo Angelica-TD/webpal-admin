@@ -9,7 +9,7 @@
 <% products.forEach(function(product){ %>
     <div>
         <a href="/view-product/<%=product.id%>">
-            <%= product.id %>
+            <span class="prod-name"><%= product.id %></span>
         </a>
         <button class="delete-button" id="<%= product.id %>">
             <img src="/icons/bin.png" alt="" style="width: 10px; height: 10px;">
@@ -17,16 +17,3 @@
     </div>
 
 <% }); %>
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const deleteButtons = document.querySelectorAll('.delete-button');
-
-        deleteButtons.forEach(function (button) {
-            button.addEventListener('click', function(event) {
-                deleteButtonHandler(event, button.id)
-            });
-        });
-    });
-</script>

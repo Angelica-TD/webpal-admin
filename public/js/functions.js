@@ -20,7 +20,7 @@ function addProductHandler(formData) {
     });
 }
 
-function deleteButtonHandler(event, id) {
+function deleteButtonHandler(event, id, prodName) {
     event.preventDefault();
     let currentURL = window.location.href;
     let slug = currentURL.substring(currentURL.lastIndexOf("/") + 1);
@@ -30,8 +30,8 @@ function deleteButtonHandler(event, id) {
             type: 'DELETE',
             url: '/delete-product',
             data: { id: `${id}` },
-            success: function (response) {
-                alert(`${response.id} has been deleted`);
+            success: function () {
+                alert(`${prodName} has been deleted`);
                 if( slug != 'all-products'){
                     window.location.href = `/all-products`;
                 }else{

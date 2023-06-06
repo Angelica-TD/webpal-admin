@@ -1,18 +1,7 @@
 
 <h1>
-    Product <%= productId %>
+    Product <span class="prod-name"><%= productName %></span>
 </h1>
 <button class="delete-button" id="<%= productId %>">
     <img src="/icons/bin.png" alt="" style="width: 10px; height: 10px;">
 </button>
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const deleteButton = document.querySelector('.delete-button');
-
-        deleteButton.addEventListener('click', function(event) {
-                deleteButtonHandler(event, deleteButton.id)
-            });
-    });
-</script>

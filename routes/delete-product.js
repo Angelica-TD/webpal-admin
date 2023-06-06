@@ -9,10 +9,10 @@ router.delete('/', async (req, res) => {
   try {
     const { id } = req.body;
 
-    // Execute the delete query
     await db.query('DELETE FROM products WHERE id = ?', [id]);
 
-    res.json({ id });
+    res.status(200).send();
+
   } catch (error) {
     console.error('Error executing MySQL query:', error);
     res.status(500).json({ error: 'Database error' });
