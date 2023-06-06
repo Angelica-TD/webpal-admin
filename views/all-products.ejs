@@ -2,16 +2,16 @@
     Viewing all products
 </h1>
 
-<% if (Object.keys(files).length===0) { %>
+<% if (Object.keys(products).length===0) { %>
     No products found. <a href="/new">Add new</a>
 <% } %>
 
-<% files.forEach(function(file){ %>
+<% products.forEach(function(product){ %>
     <div>
-        <a href="/view-product/<%=file%>">
-            <%= file %>
+        <a href="/view-product/<%=product.id%>">
+            <%= product.id %>
         </a>
-        <button class="delete-button" id="<%= file %>">
+        <button class="delete-button" id="<%= product.id %>">
             <img src="/icons/bin.png" alt="" style="width: 10px; height: 10px;">
         </button>
     </div>

@@ -6,14 +6,14 @@ function addProductHandler(formData) {
       data: formDataSerialized,
       success: function (response) {
         alert('Product successfully added');
-        window.location.href = `/view-product/${response}`;
+        window.location.href = `/view-product/${response.id}`;
       },
       error: function (xhr, status, error) {
         if (xhr.status === 400) {
           alert("Product already exists");
         }
         else if (xhr.status === 404) {
-          alert("ID is required");
+          alert("Some information is missing");
         }
 
       }
@@ -27,11 +27,11 @@ function deleteButtonHandler(event, id) {
 
     if (confirm('Are you sure you want to delete this item?')) {
         $.ajax({
-            type: 'POST',
+            type: 'DELETE',
             url: '/delete-product',
             data: { id: `${id}` },
             success: function (response) {
-                alert(`${response} has been deleted`);
+                alert(`${response.id} has been deleted`);
                 if( slug != 'all-products'){
                     window.location.href = `/all-products`;
                 }else{

@@ -8,6 +8,7 @@ const allProductsRouter = require('./routes/all-products');
 const singleProductRouter = require('./routes/view-product');
 const deleteProductRouter = require('./routes/delete-product');
 
+
 const app = express();
 
 app.set('views', path.join(__dirname, 'views'));

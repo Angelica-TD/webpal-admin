@@ -1,25 +1,18 @@
 const express = require('express');
 const fs = require('fs');
 const router = express.Router();
+const db = require('../db');
 
 router.get('/', (req, res) => {
-  
-  const directory = `../products`;
+    db.query('SELECT * FROM products', (err, products) => {
 
-  //Check if folder exists
-  if (fs.existsSync(directory)) {
-        fs.readdir(directory, (err, files) => {
-            if (err){
-                return res.status(500).send('Error retrieving directory');
-            }
-
-            res.render('all-products', { title: 'All Products', files });
-
-        });
-  }
-
-});
-
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Error executing query' });
+      }
+      res.render('all-products', { title: 'All Products', products });
+    });
+  });
 
 
 module.exports = router;

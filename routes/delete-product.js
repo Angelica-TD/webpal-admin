@@ -1,26 +1,23 @@
 const express = require('express');
 const fs = require('fs-extra');
 const router = express.Router();
+const db = require('../db');
 
-router.post('/', (req, res) => {
+
+router.delete('/', async (req, res) => {
+
+  try {
+    const { id } = req.body;
+
+    // Execute the delete query
+    await db.query('DELETE FROM products WHERE id = ?', [id]);
+
+    res.json({ id });
+  } catch (error) {
+    console.error('Error executing MySQL query:', error);
+    res.status(500).json({ error: 'Database error' });
+  }
   
-  const { id } = req.body;
-
-  const directoryPath = `../products/${id}`;
-
-  // remove directory
-  fs.remove(directoryPath, (err) => {
-
-    if (err) {
-        console.error(err);
-        return res.status(500).json({ error: 'Error deleting directory' });
-    }
-
-    res.send(id);
-
-  });
-
-
 });
 
 module.exports = router;
