@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%- title %></title>
 
+    <link rel="stylesheet" href="/css/compiled.css">
     <link rel="stylesheet" href="/css/main.css">
 
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
@@ -13,21 +14,21 @@
     <script src="/js/functions.js"></script>
 </head>
 <body>
+    <div class="container-fluid cms-full-width d-flex">
+        <%- include('../partials/sidebar.ejs') %>
+        <div class="main-content-wrapper">
     
-    <div class="wrapper">
-
-        <%- include('../partials/header.ejs') %>
-
-        <main>
-            <%- body %>
-        </main>
-
-        <%- include('../partials/footer.ejs') %>
-
+            <main>
+                <%- body %>
+            </main>
+    
+            <%- include('../partials/footer.ejs') %>
+    
+        </div>
     </div>
     
-    <% if (hasDeleteFunction) { %>
-        <script src="/js/eventListeners.js"></script>
-    <% } %>
+    
+    <script src="/js/eventListeners.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,40 @@
+@use "sass:math";
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import 'custom';
+
+$container-padding-x: 0;
+@mixin make-container($padding-x: $container-padding-x) {
+  padding-right: $padding-x;
+  padding-left: $padding-x;
+}
+
+.cms-full-width{
+    @include make-container();
+    height: 100vh;
+}
+
+$sidebar-width: 280px;
+$main-content-wrapper-padding-left: 20px;
+$product-form-width: 100%;
+
+
+.sidebar{
+    width: $sidebar-width;
+}
+
+.main-content-wrapper{
+    flex-grow: 1;
+    padding-left: $main-content-wrapper-padding-left;
+}
+
+main{
+    height: 90vh;
+}
+
+#addProduct{
+    width: $product-form-width;
+}
+
+#addProduct .row{
+    width: 100%;
+}

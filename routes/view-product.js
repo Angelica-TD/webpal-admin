@@ -4,7 +4,6 @@ const router = express.Router();
 const db = require('../db');
 
 router.get('/:id', async (req, res) => {
-  const hasDeleteFunction = true;
   try {
     const { id } = req.params;
     const sql = `SELECT * FROM products WHERE id = ?`;
@@ -13,7 +12,7 @@ router.get('/:id', async (req, res) => {
       return res.status(404).json({ error: 'Data not found' });
     }
     
-    res.render('view-product', { title: `${id}`, productId: result[0].id, productName: result[0].name, hasDeleteFunction });
+    res.render('view-product', { title: `${id}`, productId: result[0].id, productName: result[0].name });
 
   } catch (error) {
 

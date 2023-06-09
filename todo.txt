@@ -23,6 +23,16 @@ When user presses submit, process the request, if success, display a dialog. Use
 
 5/6
 
-- display product name as h1 (view-product.js)
+- [DONE] display product name as h1 (view-product.js)
 - make prettier
-- improve security--add data validation, etc
+- [DONE] (removed whitespace and special characters from user input: functions.js)  improve security--add data validation, etc
+
+7/6
+
+- [DONE] display product name next to id in view all products
+- when viewing a single product, able to edit product name
+
+8/6
+
+- add description field
+- add price field

@@ -1,24 +1,32 @@
-<h1>Add a new product</h1>
-<form>
-  <div>
-    <label for="id">ID:</label>
-    <input type="text" id="id" name="id">
+<h1 class="mb-5">Add a new product</h1>
+<form id="addProduct">
+  <div class="row mb-3">
+    <label class="col-2 col-form-label" for="id">ID:</label>
+    <div class="col-sm-6">
+      <input class="form-control" type="text" id="id" name="id">
+    </div>
   </div>
 
-  <div>
-    <label for="productName">Product name: </label>
-    <input type="text" id="productName" name="productName">
+  <div class="row mb-3">
+    <label class="col-2 col-form-label" for="productName">Product name: </label>
+    <div class="col-sm-6">
+      <input class="form-control" type="text" id="productName" name="productName">
+    </div>
   </div>
 
 
-  <button type="submit">Submit</button>
+  <button class="btn btn-success" type="submit">Submit</button>
 </form>
+
 
 <script>
   $(document).ready(function () {
+    
     $('form').submit(function (e) {
+        const idInput = $('#id');
+        const nameInput = $('#productName');
         e.preventDefault();
-        addProductHandler($(this));
+        addProductHandler(idInput[0].value, nameInput[0].value);
     });
   });
 </script>

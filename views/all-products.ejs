@@ -8,9 +8,10 @@
 
 <% products.forEach(function(product){ %>
     <div>
-        <a href="/view-product/<%=product.id%>">
-            <span class="prod-name"><%= product.id %></span>
+        <a class="product-id" href="/view-product/<%=product.id%>">
+            <span id="prodId"><%= product.id %></span>
         </a>
+        <span class="prod-name"><%= product.name %></span>
         <button class="delete-button" id="<%= product.id %>">
             <img src="/icons/bin.png" alt="" style="width: 10px; height: 10px;">
         </button>

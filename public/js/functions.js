@@ -1,9 +1,26 @@
-function addProductHandler(formData) {
-    var formDataSerialized = formData.serialize();
+function removeSpecialCharacters(input) {
+  const pattern = /[^a-zA-Z0-9]/g;
+  const sanitisedInput = input.replace(pattern, '');
+  return sanitisedInput;
+}
+
+function removeSpecialCharExApostrophe(input){
+  const pattern = /[^a-zA-Z0-9\s']/g;
+  const sanitisedInput = input.replace(pattern, '');
+  return sanitisedInput;
+}
+
+
+function addProductHandler(idInput, nameInput) {
+    let idSanitised = removeSpecialCharacters(idInput);
+    let nameSanitised = removeSpecialCharExApostrophe(nameInput);
     $.ajax({
       type: 'POST',
       url: '/new',
-      data: formDataSerialized,
+      data: {
+        id: idSanitised,
+        productName: nameSanitised
+      },
       success: function (response) {
         alert('Product successfully added');
         window.location.href = `/view-product/${response.id}`;
