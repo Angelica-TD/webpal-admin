@@ -11,19 +11,19 @@ function removeSpecialCharExApostrophe(input){
 }
 
 
-function addProductHandler(idInput, nameInput) {
-    let idSanitised = removeSpecialCharacters(idInput);
+function addProductHandler(productCodeInput, nameInput) {
+    let productCodeSanitised = removeSpecialCharacters(productCodeInput);
     let nameSanitised = removeSpecialCharExApostrophe(nameInput);
     $.ajax({
       type: 'POST',
       url: '/new',
       data: {
-        id: idSanitised,
+        productCode: productCodeSanitised,
         productName: nameSanitised
       },
       success: function (response) {
         alert('Product successfully added');
-        window.location.href = `/view-product/${response.id}`;
+        window.location.href = `/view-product/${response.productCode}`;
       },
       error: function (xhr, status, error) {
         if (xhr.status === 400) {
@@ -37,7 +37,7 @@ function addProductHandler(idInput, nameInput) {
     });
 }
 
-function deleteButtonHandler(event, id, prodName) {
+function deleteButtonHandler(event, productCode, prodName) {
     event.preventDefault();
     let currentURL = window.location.href;
     let slug = currentURL.substring(currentURL.lastIndexOf("/") + 1);
@@ -46,7 +46,7 @@ function deleteButtonHandler(event, id, prodName) {
         $.ajax({
             type: 'DELETE',
             url: '/delete-product',
-            data: { id: `${id}` },
+            data: { productCode: `${productCode}` },
             success: function () {
                 alert(`${prodName} has been deleted`);
                 if( slug != 'all-products'){

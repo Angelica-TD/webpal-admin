@@ -8,8 +8,8 @@
 
 <% products.forEach(function(product){ %>
     <div>
-        <a class="product-id" href="/view-product/<%=product.id%>">
-            <span id="prodId"><%= product.id %></span>
+        <a class="product-code" href="/view-product/<%=product.product_code%>">
+            <span id="productCode"><%= product.product_code %></span>
         </a>
         <span class="prod-name"><%= product.name %></span>
         <button class="delete-button" id="<%= product.id %>">

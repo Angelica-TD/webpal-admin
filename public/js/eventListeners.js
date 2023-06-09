@@ -1,6 +1,6 @@
 $(document).ready(function() {
     const deleteButtons = document.querySelectorAll('.delete-button');
-    const prodName = document.querySelector('#prodId');
+    const prodName = document.querySelector('#productCode');
     
     deleteButtons.forEach(function (button) {
         button.addEventListener('click', function (event) {

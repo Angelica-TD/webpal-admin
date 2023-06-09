@@ -11885,4 +11885,10 @@ main {
   width: 100%;
 }
 
+@media (min-width: 576px) {
+  #addProduct .input-group {
+    width: 50%;
+  }
+}
+
 /*# sourceMappingURL=compiled.css.map */

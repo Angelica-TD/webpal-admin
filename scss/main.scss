@@ -38,3 +38,9 @@ main{
 #addProduct .row{
     width: 100%;
 }
+
+@media (min-width: 576px){
+    #addProduct .input-group{
+        width: 50%;
+    }
+}

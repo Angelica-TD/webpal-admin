@@ -34,5 +34,10 @@ When user presses submit, process the request, if success, display a dialog. Use
 
 8/6
 
-- add description field
-- add price field
+- add description field and handle input from backend
+- add price field and handle input from backend
+
+9/6
+
+- [DONE] change ID to product code
+- add product image upload and handle input -- use cloud storage solution

@@ -1,9 +1,9 @@
 <h1 class="mb-5">Add a new product</h1>
 <form id="addProduct">
   <div class="row mb-3">
-    <label class="col-2 col-form-label" for="id">ID:</label>
+    <label class="col-2 col-form-label" for="productCode">Product code:</label>
     <div class="col-sm-6">
-      <input class="form-control" type="text" id="id" name="id">
+      <input class="form-control" type="text" id="productCode" name="productCode">
     </div>
   </div>
 
@@ -14,6 +14,23 @@
     </div>
   </div>
 
+  <div class="row mb-3">
+    <label class="col-2 col-form-label" for="description">Description: </label>
+    <div class="col-sm-6">
+      <textarea class="form-control" id="description" rows="3"></textarea>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-2 col-form-label" for="price">Price: </label>
+    <div class="col-sm-6 input-group">
+      <span class="input-group-text">$</span>
+      <input type="text" name="price" class="form-control" id="price" aria-label="Amount">
+    </div>
+  </div>
+
+  
+
 
   <button class="btn btn-success" type="submit">Submit</button>
 </form>
@@ -23,10 +40,10 @@
   $(document).ready(function () {
     
     $('form').submit(function (e) {
-        const idInput = $('#id');
+        const productCodeInput = $('#productCode');
         const nameInput = $('#productName');
         e.preventDefault();
-        addProductHandler(idInput[0].value, nameInput[0].value);
+        addProductHandler(productCodeInput[0].value, nameInput[0].value);
     });
   });
 </script>

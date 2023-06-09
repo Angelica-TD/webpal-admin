@@ -16,7 +16,6 @@ connection.connect((err) => {
 module.exports = {
   connection,
 
-  // Function to execute a query
   query: (sql, values) => {
     return new Promise((resolve, reject) => {
       connection.query(sql, values, (error, results) => {
