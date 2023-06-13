@@ -7,6 +7,7 @@ const newRouter = require('./routes/new');
 const allProductsRouter = require('./routes/all-products');
 const singleProductRouter = require('./routes/view-product');
 const deleteProductRouter = require('./routes/delete-product');
+const updateProductRouter = require('./routes/update-product');
 
 
 const app = express();
@@ -29,5 +30,6 @@ app.use('/new', newRouter);
 app.use('/delete-product', deleteProductRouter);
 app.use('/all-products', allProductsRouter);
 app.use('/view-product', singleProductRouter);
+app.use('/update-product', updateProductRouter);
 
 module.exports = app;

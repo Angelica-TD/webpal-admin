@@ -1,12 +1,59 @@
-
 <p>
-    Product <span class="prod-name"><%= productName %></span>
+  Product <span class="prod-name">
+    <%= productName %>
+  </span>
 </p>
 
-<p>
-    <span id="productCode">Product code: <%= productCode %></span>
-</p>
+<form id="viewProduct">
 
-<button class="delete-button" id="<%= productCode %>">
+  <button class="delete-button" id="<%= id %>">
     <img src="/icons/bin.png" alt="" style="width: 10px; height: 10px;">
-</button>
+  </button>
+
+  <div class="row mb-3">
+    <label class="col-2 col-form-label" for="productCode">Product code:</label>
+    <div class="col-sm-6">
+      <input class="form-control" type="text" id="productCode" name="productCode" value="<%= productCode %>">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-2 col-form-label" for="productName">Product name: </label>
+    <div class="col-sm-6">
+      <input class="form-control" type="text" id="productName" name="productName" value="<%= productName %>">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-2 col-form-label" for="description">Description: </label>
+    <div class="col-sm-6">
+      <textarea class="form-control" id="description" rows="3"><%= productDescription %></textarea>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <label class="col-2 col-form-label" for="price">Price: </label>
+    <div class="col-sm-6 input-group">
+      <span class="input-group-text">$</span>
+      <input type="text" name="price" class="form-control" id="price" aria-label="Amount" value="<%= price %>">
+    </div>
+  </div>
+
+  <button class="btn btn-success" type="submit">Update</button>
+</form>
+
+<script>
+  $(document).ready(function () {
+
+    $('form').submit(function (e) {
+      const id = $('.delete-button').attr('id');
+      const productCodeInput = $('#productCode');
+      const nameInput = $('#productName');
+      const descriptionInput = $('#description');
+      const priceInput = $('#price');
+
+      e.preventDefault();
+      updateButtonHandler(id, productCodeInput[0].value, nameInput[0].value, descriptionInput[0].value, priceInput[0].value);
+    });
+  });
+</script>

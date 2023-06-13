@@ -11886,7 +11886,8 @@ main {
 }
 
 @media (min-width: 576px) {
-  #addProduct .input-group {
+  #addProduct .input-group,
+  #viewProduct .input-group {
     width: 50%;
   }
 }

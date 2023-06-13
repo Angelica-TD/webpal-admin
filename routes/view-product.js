@@ -12,7 +12,15 @@ router.get('/:productCode', async (req, res) => {
       return res.status(404).json({ error: 'Data not found' });
     }
     
-    res.render('view-product', { title: `${productCode}`, productCode: result[0].product_code, productName: result[0].name });
+    res.render('view-product',
+    { 
+      title: `${productCode}`,
+      id: result[0].id,
+      productCode: result[0].product_code,
+      productName: result[0].name,
+      productDescription: result[0].description,
+      price: result[0].price
+    });
 
   } catch (error) {
 

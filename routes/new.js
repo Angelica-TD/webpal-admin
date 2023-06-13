@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    const { productCode, productName } = req.body;
+    const { productCode, productName, description, price } = req.body;
     if(!productCode || !productName){
       return res.status(404).json({ error: 'Required fields' });
     }
@@ -23,8 +23,8 @@ router.post('/', async (req, res, next) => {
     const newProduct = {
       product_code: productCode,
       name: productName,
-      description: 'sample description',
-      price: 10
+      description: description,
+      price: price
     };
 
     await db.query('INSERT INTO products SET ?', newProduct);

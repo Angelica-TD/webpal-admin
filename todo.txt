@@ -30,14 +30,24 @@ When user presses submit, process the request, if success, display a dialog. Use
 7/6
 
 - [DONE] display product name next to id in view all products
-- when viewing a single product, able to edit product name
+- [DONE] when viewing a single product, able to edit product name
 
 8/6
 
-- add description field and handle input from backend
-- add price field and handle input from backend
+- [DONE] add description field and handle input from backend
+- [DONE] add price field and handle input from backend
 
 9/6
 
 - [DONE] change ID to product code
 - add product image upload and handle input -- use cloud storage solution
+        -- add a new route for image uploads, in view single product, add a tab 'Image upload'
+
+10/6
+
+- [DONE] add description and price when viewing a product
+- [DONE] add update product route and handle input change
+
+11/6
+
+- add search product function

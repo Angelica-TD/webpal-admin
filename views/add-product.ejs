@@ -29,9 +29,6 @@
     </div>
   </div>
 
-  
-
-
   <button class="btn btn-success" type="submit">Submit</button>
 </form>
 
@@ -42,8 +39,11 @@
     $('form').submit(function (e) {
         const productCodeInput = $('#productCode');
         const nameInput = $('#productName');
+        const descriptionInput = $('#description');
+        const priceInput = $('#price');
+
         e.preventDefault();
-        addProductHandler(productCodeInput[0].value, nameInput[0].value);
+        addProductHandler(productCodeInput[0].value, nameInput[0].value, descriptionInput[0].value, priceInput[0].value);
     });
   });
 </script>

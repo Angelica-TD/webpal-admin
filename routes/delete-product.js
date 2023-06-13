@@ -7,9 +7,9 @@ const db = require('../db');
 router.delete('/', async (req, res) => {
 
   try {
-    const { productCode } = req.body;
+    const { id } = req.body;
 
-    await db.query('DELETE FROM products WHERE product_code = ?', [productCode]);
+    await db.query('DELETE FROM products WHERE id = ?', [id]);
 
     res.status(200).send();
 
