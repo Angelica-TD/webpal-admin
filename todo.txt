@@ -41,7 +41,8 @@ When user presses submit, process the request, if success, display a dialog. Use
 
 - [DONE] change ID to product code
 - add product image upload and handle input -- use cloud storage solution
-        -- add a new route for image uploads, in view single product, add a tab 'Image upload'
+        -- [OK] add a new route for image uploads, in view single product, add a tab 'Image upload'
+        -- save file details to database
 
 10/6
 

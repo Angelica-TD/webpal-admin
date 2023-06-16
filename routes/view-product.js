@@ -1,7 +1,18 @@
 const express = require('express');
-const fs = require('fs');
+const multer = require('multer');
 const router = express.Router();
 const db = require('../db');
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, `uploads/`);
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+
+const upload = multer({ storage: storage });
 
 router.get('/:productCode', async (req, res) => {
   try {
@@ -28,6 +39,20 @@ router.get('/:productCode', async (req, res) => {
     res.status(500).json({ error: 'Database error' });
 
   } 
+});
+
+router.get('/:productCode/upload-images', (req, res) => {
+  const { productCode } = req.params;
+  res.render('upload-images', { title: `Upload images for ${ productCode }`});
+});
+
+router.post('/:productCode/upload-images', upload.array('images'), (req, res) => {
+  const { productCode } = req.params;
+
+  const file = req.file;
+
+  res.send('ok');
+
 });
 
 
