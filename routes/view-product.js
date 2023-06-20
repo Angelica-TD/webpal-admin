@@ -5,7 +5,7 @@ const db = require('../db');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, `uploads/`);
+    cb(null, 'public/uploads/');
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + '-' + file.originalname);
@@ -41,17 +41,39 @@ router.get('/:productCode', async (req, res) => {
   } 
 });
 
-router.get('/:productCode/upload-images', (req, res) => {
-  const { productCode } = req.params;
-  res.render('upload-images', { title: `Upload images for ${ productCode }`});
+router.get('/:productCode/:productId/upload-images', async (req, res) => {
+
+  try{
+    const { productCode, productId } = req.params;
+
+    const imageNames = await db.query('SELECT image_name FROM images WHERE product_id = ?', [productId]);
+
+    res.render('upload-images', { title: `Upload images for ${ productCode }`, productCode, productId, message: req.flash('info'), imageNames});
+  } catch (error) {
+    console.error('Error retrieving image files:', error);
+    res.status(500).send('Internal Server Error');
+  }
+  
 });
 
-router.post('/:productCode/upload-images', upload.array('images'), (req, res) => {
-  const { productCode } = req.params;
+router.post('/:productCode/:productId/upload-images', upload.array('images'), async (req, res) => {
 
-  const file = req.file;
+  try{
+    const { productCode, productId } = req.params;
+    const uploadedFiles = req.files;
+    const fileNames = uploadedFiles.map(file => file.filename);
+    const sql = 'INSERT INTO images (product_id, image_name) VALUES (?, ?)';
+  
+    db.query(sql, [productId, fileNames]);
+  
+    req.flash('info', 'Saved');
+    res.redirect(`/view-product/${productCode}/${productId}/upload-images`);
 
-  res.send('ok');
+  } catch (error) {
+    console.error('Error executing MySQL query:', error);
+    res.status(500).json({ error: 'Database error' });
+  }
+
 
 });
 

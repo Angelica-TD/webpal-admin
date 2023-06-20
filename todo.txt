@@ -40,9 +40,10 @@ When user presses submit, process the request, if success, display a dialog. Use
 9/6
 
 - [DONE] change ID to product code
-- add product image upload and handle input -- use cloud storage solution
+- [DONE] add product image upload and handle input
         -- [OK] add a new route for image uploads, in view single product, add a tab 'Image upload'
-        -- save file details to database
+        -- [DONE] save file details to database
+        -- [DONE] retrieve file details from database and display in /view-product/productCode/productId/upload-images
 
 10/6
 
@@ -52,3 +53,7 @@ When user presses submit, process the request, if success, display a dialog. Use
 11/6
 
 - add search product function
+
+20/6
+
+- add functionality to delete images in /view-product/productCode/productId/upload-images

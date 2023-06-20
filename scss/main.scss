@@ -45,3 +45,13 @@ main{
         width: 50%;
     }
 }
+
+.thumbnail {
+    display: inline-block;
+    margin: 10px;
+}
+  
+.thumbnail img {
+    width: 100px;
+    height: auto;
+}

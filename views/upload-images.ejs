@@ -1,5 +1,18 @@
-<form action="/view-product/aaaaa/upload-images" method="POST" enctype="multipart/form-data">
+<% if (message) { %>
+  <p class="success-message"><%= message %></p>
+<% } %>
+
+<form action="/view-product/<%= productCode %>/<%= productId %>/upload-images" method="POST" enctype="multipart/form-data">
     <input type="file" name="images" accept="image/*" />
     <button type="submit">Upload</button>
-  </form>
-  
+</form>
+
+
+<div>
+  <h3>Images for <%= productCode %></h3>
+  <% imageNames.forEach((imageName) => { %>
+    <div class="thumbnail">
+      <img src="/uploads/<%= imageName.image_name %>" alt="<%= imageName %>">
+    </div>
+  <% }) %>
+</div>

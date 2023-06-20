@@ -1,3 +1,6 @@
+const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const path = require('path');
@@ -11,6 +14,16 @@ const updateProductRouter = require('./routes/update-product');
 
 
 const app = express();
+
+app.use(cookieParser());
+app.use(session({
+        resave: true,
+        saveUninitialized: true,
+        secret: 'hoooooo',
+        cookie: { maxAge: 5000 }
+    }));
+
+app.use(flash());
 
 app.set('views', path.join(__dirname, 'views'));
 

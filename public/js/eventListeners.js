@@ -10,12 +10,12 @@ $(document).ready(function() {
 
     let currentPage = window.location.pathname;
     let currentUrl = window.location.href;
-    let slug = currentUrl.split('/').pop();
+    let slug = currentUrl.split('/').slice(4, 5).toString();
     let linkToKeepActive = $(`a[href='${currentPage}']`);
 
     if(currentPage.indexOf('view-product') !== -1){
         $('#currentProduct').text(`${slug}`);
-        linkToKeepActive = $(`a[href='/all-products']`);
+        linkToKeepActive = $('#currentProductUL');
         $('.collapse').addClass('show');
     }else{
         $('.collapse').removeClass('show');
