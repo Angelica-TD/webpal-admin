@@ -48,7 +48,7 @@ router.get('/:productCode/:productId/upload-images', async (req, res) => {
 
     const imageNames = await db.query('SELECT image_name FROM images WHERE product_id = ?', [productId]);
 
-    res.render('upload-images', { title: `Upload images for ${ productCode }`, productCode, productId, message: req.flash('info'), imageNames});
+    res.render('upload-images', { title: `Upload images for ${ productCode }`, productCode, productId, message: req.flash(), imageNames});
   } catch (error) {
     console.error('Error retrieving image files:', error);
     res.status(500).send('Internal Server Error');
@@ -61,6 +61,12 @@ router.post('/:productCode/:productId/upload-images', upload.array('images'), as
   try{
     const { productCode, productId } = req.params;
     const uploadedFiles = req.files;
+
+    if (!uploadedFiles || uploadedFiles.length === 0) {
+      req.flash('error', 'You must select at least one image to upload');
+      return res.redirect(`/view-product/${productCode}/${productId}/upload-images`);
+    }
+
     const fileNames = uploadedFiles.map(file => file.filename);
     const sql = 'INSERT INTO images (product_id, image_name) VALUES (?, ?)';
   

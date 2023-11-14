@@ -41,7 +41,7 @@ When user presses submit, process the request, if success, display a dialog. Use
 
 - [DONE] change ID to product code
 - [DONE] add product image upload and handle input
-        -- [OK] add a new route for image uploads, in view single product, add a tab 'Image upload'
+        -- [DONE] add a new route for image uploads, in view single product, add a tab 'Image upload'
         -- [DONE] save file details to database
         -- [DONE] retrieve file details from database and display in /view-product/productCode/productId/upload-images
 
@@ -57,3 +57,7 @@ When user presses submit, process the request, if success, display a dialog. Use
 20/6
 
 - add functionality to delete images in /view-product/productCode/productId/upload-images
+
+8/7
+- [DONE] add logic to check if image is empty (when user clicks on 'upload' without selecting any image) and handle
+- restructure database

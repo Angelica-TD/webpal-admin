@@ -1,6 +1,12 @@
-<% if (message) { %>
-  <p class="success-message"><%= message %></p>
+<% if (messages.info) { %>
+  <p id="infoMessage" class="success-message"><%= messages.info %></p>
 <% } %>
+
+<% if (messages.error) { %>
+  <p id="errorMessage" style="color: red;"><%= messages.error %></p>
+<% } %>
+
+<a href="/view-product/<%= productCode %>/">Back to <%= productCode %></a>
 
 <form action="/view-product/<%= productCode %>/<%= productId %>/upload-images" method="POST" enctype="multipart/form-data">
     <input type="file" name="images" accept="image/*" />
@@ -16,3 +22,19 @@
     </div>
   <% }) %>
 </div>
+
+<script>
+  // Automatically hide error and info messages after 5 seconds
+  setTimeout(() => {
+    const errorMessage = document.getElementById('errorMessage');
+    const infoMessage = document.getElementById('infoMessage');
+
+    if (errorMessage) {
+      errorMessage.style.display = 'none';
+    }
+
+    if (infoMessage) {
+      infoMessage.style.display = 'none';
+    }
+  }, 5000);
+</script>

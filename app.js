@@ -35,6 +35,11 @@ app.engine('html', require('ejs').renderFile);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use((req, res, next) => {
+    res.locals.messages = req.flash();
+    next();
+});
+
 //static files
 app.use(express.static(path.join(__dirname, '/public')));
 
