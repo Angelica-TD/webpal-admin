@@ -9,7 +9,7 @@
 <a href="/view-product/<%= productCode %>/">Back to <%= productCode %></a>
 
 <form action="/view-product/<%= productCode %>/<%= productId %>/upload-images" method="POST" enctype="multipart/form-data">
-    <input type="file" name="images" accept="image/*" />
+    <input type="file" name="images" accept="image/*" multiple/>
     <button type="submit">Upload</button>
 </form>
 
@@ -61,6 +61,8 @@
     // If the user confirmed, submit the form
     if (userConfirmed) {
       document.getElementById("deleteForm").submit();
+    }else{
+      event.preventDefault();
     }
   }
 </script>

@@ -54,7 +54,7 @@ function deleteButtonHandler(event, id, prodName) {
     let currentURL = window.location.href;
     let slug = currentURL.substring(currentURL.lastIndexOf("/") + 1);
 
-    if (confirm('Are you sure you want to delete this item?')) {
+    if (confirm('Are you sure you want to delete this product?')) {
         $.ajax({
             type: 'DELETE',
             url: '/delete-product',

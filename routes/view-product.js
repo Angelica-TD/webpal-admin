@@ -68,9 +68,11 @@ router.post('/:productCode/:productId/upload-images', upload.array('images'), as
     }
 
     const fileNames = uploadedFiles.map(file => file.filename);
-    const sql = 'INSERT INTO images (product_id, image_name) VALUES (?, ?)';
+    const values = fileNames.map(fileName => [productId, fileName]);
+
+    const sql = 'INSERT INTO images (product_id, image_name) VALUES ?';
   
-    db.query(sql, [productId, fileNames]);
+    await db.query(sql, [values]);
   
     req.flash('info', 'Saved');
     res.redirect(`/view-product/${productCode}/${productId}/upload-images`);

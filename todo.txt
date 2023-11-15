@@ -60,4 +60,4 @@ When user presses submit, process the request, if success, display a dialog. Use
 
 8/7
 - [DONE] add logic to check if image is empty (when user clicks on 'upload' without selecting any image) and handle
-- restructure database
+- restructure database (how)
