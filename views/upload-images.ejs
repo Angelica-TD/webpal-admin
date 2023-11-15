@@ -6,7 +6,7 @@
   <p id="errorMessage" style="color: red;"><%= messages.error %></p>
 <% } %>
 
-<a href="/view-product/<%= productCode %>/">Back to <%= productCode %></a>
+<a href="/view-product/<%= productCode %>/">Back to product</a>
 
 <form action="/view-product/<%= productCode %>/<%= productId %>/upload-images" method="POST" enctype="multipart/form-data">
     <input type="file" name="images" accept="image/*" multiple/>
