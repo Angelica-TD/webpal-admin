@@ -15,12 +15,28 @@
 
 
 <div>
-  <h3>Images for <%= productCode %></h3>
-  <% imageNames.forEach((imageName) => { %>
-    <div class="thumbnail">
-      <img src="/uploads/<%= imageName.image_name %>" alt="<%= imageName %>">
-    </div>
-  <% }) %>
+  <h3>Images for <span id="productCode"><%= productCode %></span></h3>
+  <div class="thumbnails-container">
+    <% imageNames.forEach((imageName) => { %>
+      <div class="thumbnail">
+        <img src="/uploads/<%= imageName.image_name %>" alt="<%= imageName.image_name %>">
+  
+        <div class="overlay">
+          <form id="deleteForm" action="/update-product/images" method="POST">
+            <input type="hidden" name="imageId" value="<%= imageName.id %>">
+            <input type="hidden" name="imageName" value="<%= imageName.image_name %>">
+            <input type="hidden" name="productCode" value="<%= productCode %>">
+            <input type="hidden" name="productId" value="<%= productId %>">
+            <button type="submit"  onclick="confirmDelete()">
+              <img src="/icons/bin.png" alt="" style="width: 10px; height: 10px;">
+            </button>
+          </form>
+        </div>
+      </div>
+      
+    <% }) %>
+  </div>
+
 </div>
 
 <script>
@@ -37,4 +53,14 @@
       infoMessage.style.display = 'none';
     }
   }, 5000);
+
+  function confirmDelete() {
+    // Show a confirmation dialog
+    const userConfirmed = confirm("Are you sure you want to delete this image?");
+    
+    // If the user confirmed, submit the form
+    if (userConfirmed) {
+      document.getElementById("deleteForm").submit();
+    }
+  }
 </script>

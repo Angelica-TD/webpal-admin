@@ -46,7 +46,7 @@ router.get('/:productCode/:productId/upload-images', async (req, res) => {
   try{
     const { productCode, productId } = req.params;
 
-    const imageNames = await db.query('SELECT image_name FROM images WHERE product_id = ?', [productId]);
+    const imageNames = await db.query('SELECT * FROM images WHERE product_id = ?', [productId]);
 
     res.render('upload-images', { title: `Upload images for ${ productCode }`, productCode, productId, message: req.flash(), imageNames});
   } catch (error) {

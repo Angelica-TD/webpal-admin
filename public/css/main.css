@@ -21,3 +21,41 @@ ul.collapse.list-unstyled.custom li::before{
     margin-right: 10px;
 }
 
+.thumbnails-container{
+    display: flex;
+}
+
+.thumbnail{
+    aspect-ratio: 1;
+    width: 100px;
+    margin: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.overlay{
+    background-color: #80808070;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.thumbnail:hover .overlay{
+    visibility: visible;
+}
+
+.cms-full-width{
+    height: unset;
+}
+
+main{
+    min-height: fit-content;
+}

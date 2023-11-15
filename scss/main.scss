@@ -10,7 +10,6 @@ $container-padding-x: 0;
 
 .cms-full-width{
     @include make-container();
-    height: 100vh;
 }
 
 $sidebar-width: 280px;
@@ -25,10 +24,6 @@ $product-form-width: 100%;
 .main-content-wrapper{
     flex-grow: 1;
     padding-left: $main-content-wrapper-padding-left;
-}
-
-main{
-    height: 90vh;
 }
 
 #addProduct{
@@ -49,9 +44,4 @@ main{
 .thumbnail {
     display: inline-block;
     margin: 10px;
-}
-  
-.thumbnail img {
-    width: 100px;
-    height: auto;
 }

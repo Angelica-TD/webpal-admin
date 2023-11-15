@@ -56,7 +56,7 @@ When user presses submit, process the request, if success, display a dialog. Use
 
 20/6
 
-- add functionality to delete images in /view-product/productCode/productId/upload-images
+- [DONE] add functionality to delete images in /view-product/productCode/productId/upload-images
 
 8/7
 - [DONE] add logic to check if image is empty (when user clicks on 'upload' without selecting any image) and handle
