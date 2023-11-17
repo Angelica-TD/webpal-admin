@@ -64,3 +64,9 @@ When user presses submit, process the request, if success, display a dialog. Use
 
 15/11
 - add functionality to delete multiple images all at once, implement checkbox
+- add frontend
+
+17/11
+- when deleting a product, first delete all of its associated images from the database before deleting the product
+- add validation for product code, max 20 characters
+
