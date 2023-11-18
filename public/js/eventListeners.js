@@ -4,7 +4,12 @@ $(document).ready(function() {
     
     deleteButtons.forEach(function (button) {
         button.addEventListener('click', function (event) {
-            deleteButtonHandler(event, button.id, prodName.innerHTML);
+            if(prodName.value){
+                deleteButtonHandler(event, button.id, prodName.value);
+            }else{
+                deleteButtonHandler(event, button.id, prodName.innerHTML);
+            }
+            
         });
     });
 
