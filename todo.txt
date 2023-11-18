@@ -67,6 +67,6 @@ When user presses submit, process the request, if success, display a dialog. Use
 - add frontend
 
 17/11
-- when deleting a product, first delete all of its associated images from the database before deleting the product
+- [DONE] when deleting a product, first delete all of its associated images from the database before deleting the product
 - [DONE] add validation for product code, max 20 characters
 
