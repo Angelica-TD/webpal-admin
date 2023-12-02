@@ -64,9 +64,16 @@ When user presses submit, process the request, if success, display a dialog. Use
 
 15/11
 - add functionality to delete multiple images all at once, implement checkbox
-- add frontend
+- [DONE] add frontend
 
 17/11
 - [DONE] when deleting a product, first delete all of its associated images from the database before deleting the product
 - [DONE] add validation for product code, max 20 characters
 
+18/11
+- add functionality to add pages
+- add access control
+
+2/12
+- add functionality to add a main image to be displayed in the all products page of the frontend
+- low prio: add functionality to determine the top 3 most recently added products
