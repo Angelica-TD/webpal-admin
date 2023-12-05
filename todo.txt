@@ -77,3 +77,6 @@ When user presses submit, process the request, if success, display a dialog. Use
 2/12
 - add functionality to add a main image to be displayed in the all products page of the frontend
 - low prio: add functionality to determine the top 3 most recently added products
+
+5/12
+- add log in functionality
